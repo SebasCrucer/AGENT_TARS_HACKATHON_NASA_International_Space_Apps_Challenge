@@ -1,8 +1,5 @@
 # Descripción del Programa:
-Este plugin realiza cálculos astronómicos para determinar detalles de un viaje espacial entre dos planetas utilizando un tipo específico de cohete. Estos cálculos se basan en datos proporcionados por el usuario, incluyendo los nombres de los planetas de origen y destino, el tipo de cohete, y una fecha opcional. El programa devuelve los resultados de los cálculos o un mensaje de error si no se proporcionan suficientes datos.
-**Fecha:** 08/10/2023
 
-```python
 # Importación de módulos y bibliotecas necesarios
 from astro_calc.calc import *  # Importa todas las funciones y clases del módulo calc dentro del paquete astro_calc
 import sys  # Biblioteca estándar para interactuar con el intérprete de Python
