@@ -1,5 +1,6 @@
 import { Tars } from './TarsBot';
 import { EjemploPlugin } from './TarsBot/Tools/EjemploPlugin';
+import { GetAllPlanetProperties } from './TarsBot/Tools/GetAllPlanetProperties';
 import { GetPlanetProperties } from './TarsBot/Tools/GetPlanetProperties';
 import { Callbacks } from './WhatsApp';
 
@@ -27,6 +28,11 @@ const generateResponse: (
             chat_id: jid,
             toolkit: [
                 await new GetPlanetProperties({
+                    toolCallback(feedBack) {
+                        sendMessage(feedBack)
+                    },
+                }).getDynamicTool(),
+                await new GetAllPlanetProperties({
                     toolCallback(feedBack) {
                         sendMessage(feedBack)
                     },

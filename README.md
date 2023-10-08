@@ -1,29 +1,30 @@
-# Agent TARS Hackathon NASA International Space Apps Challenge
+# 🚀 **TARS**: El Agente de Viajes Interplanetario del Futuro 🌌
 
-Este repositorio contiene el código fuente del proyecto "Agent TARS" desarrollado para el Hackathon de la NASA International Space Apps Challenge.
+## 🌟 Introducción
+**TARS** es un sistema revolucionario diseñado para integrarse con plataformas de mensajería como **WhatsApp** 📱. Actúa como un agente de viajes interplanetario 🌠, proporcionando información detallada y cálculos precisos sobre viajes espaciales utilizando un avanzado **LLM** 🧠.
 
-## Estructura del Repositorio
+## 🛠 Características Principales
 
-- **src/**: Directorio principal que contiene el código fuente del proyecto.
-  - **AgentHandler.ts**: Manejador principal del agente TARS.
-  - **DB/**: Contiene las acciones y operaciones relacionadas con la base de datos.
-    - **DBActions.ts**: Acciones específicas para la base de datos.
-  - **TarsBot/**: Funcionalidades relacionadas con el bot TARS.
-    - **DBMemory.ts**: Memoria y almacenamiento del bot.
-    - **Tools/**: Herramientas y utilidades para el bot.
-      - **EjemploPlugin/index.ts**: Ejemplo de un plugin para el bot.
-      - **SystemTools/TimeRetriver.ts**: Herramienta para recuperar la hora.
-  - **WhatsApp/**: Funcionalidades relacionadas con la integración de WhatsApp.
-    - **Bottle/**: Módulo principal de la integración de WhatsApp.
-      - **DB.ts**: Base de datos para la integración de WhatsApp.
-      - **bottle/**: Funciones y utilidades para el módulo Bottle.
-        - **AuthHandle.ts**: Manejador de autenticación para WhatsApp.
-      - **index.ts**: Punto de entrada principal para el módulo Bottle.
-  - **events.ts**: Eventos y callbacks del sistema.
-  - **index.ts**: Punto de entrada principal del proyecto.
+- **Desarrollado en TypeScript:** TARS está construido utilizando **TypeScript** 💻, lo que garantiza un código fuertemente tipado y una estructura robusta.
 
-## Cómo Empezar
+- **Integración con WhatsApp:** TARS se comunica directamente a través de **WhatsApp** 🟢, ofreciendo una experiencia de usuario fluida y familiar.
 
-1. Clona el repositorio.
-2. Corre `npm build` para instalar las dependencias y compilar el proyecto con `tsc`.
-3. Para iniciar el proyecto, ejecuta `npm dev`.
+- **Base de Datos en PostgreSQL:** TARS utiliza una base de datos robusta en **PostgreSQL** 🗃 para almacenar y gestionar la información. Esto garantiza la persistencia, seguridad y eficiencia en el manejo de datos.
+
+- **Uso de Langchain:** TARS utiliza **Langchain** 🔗 para gestionar las peticiones al LLM. Esto permite a TARS procesar y responder a las consultas de los usuarios con precisión y eficiencia.
+
+- **Cálculos Orbitales:** Utilizando uno de sus plugins especializados, TARS es capaz de realizar cálculos orbitales 🌍🔭 precisos para elaborar planes de viaje interplanetario.
+
+- **Plugins en Python:** Los plugins de TARS están desarrollados en **Python** 🐍, lo que permite una integración fluida con diversas bibliotecas y herramientas especializadas.
+
+- **Plugins Extensibles:** TARS es altamente personalizable gracias a su arquitectura basada en plugins 🔌. Estos plugins permiten a TARS realizar cálculos específicos, como determinar distancias entre planetas o tiempos de viaje en cohetes específicos. Además, los plugins pueden extraer información de diversas fuentes, incluidas APIs especializadas como **AstroPy** y **SkyField**.
+
+## 🪐 Información Planetaria
+TARS proporciona datos detallados sobre diferentes planetas, incluyendo:
+
+- Características físicas (color, masa, diámetro, densidad, etc.)
+- Datos orbitales (distancia del sol, velocidad orbital, inclinación, etc.)
+- Condiciones atmosféricas (composición, presión, temperatura, etc.)
+- Características superficiales y puntos de interés.
+
+🌌 **TARS** es la solución definitiva para aquellos interesados en explorar el espacio. Ya sea que estés planeando un viaje a Marte o simplemente quieras aprender más sobre el sistema solar, TARS tiene la respuesta. Con su combinación de tecnología avanzada, datos precisos y facilidad de uso, TARS está listo para llevarte a las estrellas ✨.
