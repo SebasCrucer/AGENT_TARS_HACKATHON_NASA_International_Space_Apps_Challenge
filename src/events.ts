@@ -1,5 +1,6 @@
 import { Tars } from './TarsBot';
 import { EjemploPlugin } from './TarsBot/Tools/EjemploPlugin';
+import { GetPlanetProperties } from './TarsBot/Tools/GetPlanetProperties';
 import { Callbacks } from './WhatsApp';
 
 export type params = {
@@ -36,10 +37,16 @@ const generateResponse: (
                 }).getDynamicTool()
             )
         )
+
         const agent = new Tars({
             chat_id: jid,
             toolkit: [
                 ...EjemploPlugins,
+                await new GetPlanetProperties({
+                    toolCallback(feedBack) {
+                        sendMessage(feedBack)
+                    },
+                }).getDynamicTool()
             ],
             modelType: params.modelType,
             name: params.name,
@@ -69,7 +76,10 @@ export const events: (params: params) => Callbacks = (params) => ({
             message?.conversation :
             messageType === "extendedTextMessage" ?
                 message?.extendedTextMessage?.text :
-                undefined
+                undefined;
+
+        console.log('mensajwe');
+
         if (remoteJid && messageText && !fromMe && remoteJid !== 'status@broadcast') {
             if (
                 params.respondTo.type === 'specific' ?

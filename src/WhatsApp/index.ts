@@ -104,7 +104,8 @@ export class WhatsAppClient {
                 auth: this.state,
                 logger: this.logger,
                 qrTimeout: this.QRTimeout,
-                browser: Browsers.appropriate('Tars')
+                browser: Browsers.appropriate('Tars'),
+                printQRInTerminal: true,
             });
             this.store.bind(this.sock)
             this.sock.ev.process(async (events: Partial<BaileysEventMap>) => {
