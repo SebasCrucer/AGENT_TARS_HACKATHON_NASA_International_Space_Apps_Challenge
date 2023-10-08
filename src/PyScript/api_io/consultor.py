@@ -19,21 +19,27 @@ class Consultor:
         pass
 
     def get_flat_row(self, header_val: str):
-        df: DataFrame = self.__get_row_df(header_val)
+        df= self.__get_row_df(header_val)
+
+        lst = df.values.tolist()[0]
 
         val_dict : dict = dict()
         t_dict : dict = dict()
 
-        # add key - value twice
-        for index in range(1,len(df.values)):
-            val_dict[df[index]] = df.values[index]
+        for index in range(1,len(lst)-1):
+            val_dict[df.columns[index]] = lst[index]
+            pass
 
-        print(val_dict)
+        t_dict[df.columns[0]] = lst[0]
+        t_dict["Values"] = val_dict
+        
 
-            
+        return t_dict
 
-        pass
-
+    def __get_row_df(self, header_val: str):
+        df = read_csv(self.__path)
+        return df[df.iloc[:, 0] == header_val]
+    
     def get_flat_keys(self,*args):
         '''
             Filter a data frame in path
@@ -81,15 +87,13 @@ class Consultor:
         #return filter data frame
         return read_csv(self.__path)[t_args]
     
-    def __get_row_df(self, header_val: str):
-        df = read_csv(self.__path)
-        return df[df.iloc[:, 0] == header_val]
+    
 
 
 if __name__ == "__main__":
 
     a = Consultor("planets_updated.csv")
 
-    a.get_flat_row("Mars")
+    
     
 
