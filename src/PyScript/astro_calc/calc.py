@@ -94,23 +94,20 @@ def calc(p1,p2,rocket,date = None):
             planet_data = get_planet_positions()
 
     except EphemerisRangeError:
-        print("La fecha ingresada está fuera del rango cubierto por el archivo de efemérides. Por favor, elige una fecha entre 1899-07-29 y 2053-10-09.")
-        planet_data = None
+        return f"La fecha ingresada está fuera del rango cubierto por el archivo de efemérides. Por favor, elige una fecha entre 1899-07-29 y 2053-10-09."
 
     # Asegúrate de que solo continuamos si planet_data es válido
-    if planet_data:
 
-       
+    if selected_rocket not in rocket_speeds:
+        print("Cohete no reconocido.")
+        exit()
 
-        if selected_rocket not in rocket_speeds:
-            print("Cohete no reconocido.")
-            exit()
+    distance = calculate_distance(planet_data, planet1, planet2)
+    time_seconds = calculate_travel_time(distance, rocket_speeds[selected_rocket])
 
-        distance = calculate_distance(planet_data, planet1, planet2)
-        time_seconds = calculate_travel_time(distance, rocket_speeds[selected_rocket])
+    hours = time_seconds // 3600
+    minutes = (time_seconds % 3600) // 60
+    seconds = time_seconds % 60
 
-        hours = time_seconds // 3600
-        minutes = (time_seconds % 3600) // 60
-        seconds = time_seconds % 60
+    return f"{int(hours)} horas, {int(minutes)} minutos y {seconds:.2f} segundos."
 
-        return f"El tiempo de viaje entre {planet1} y {planet2} usando el {selected_rocket} es aproximadamente {int(hours)} horas, {int(minutes)} minutos y {seconds:.2f} segundos."

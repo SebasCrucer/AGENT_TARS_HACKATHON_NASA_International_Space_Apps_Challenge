@@ -1,7 +1,8 @@
 import { Tars } from './TarsBot';
-import { EjemploPlugin } from './TarsBot/Tools/EjemploPlugin';
+import { GetAbleRockets } from './TarsBot/Tools/GetAbleRockets';
 import { GetAllPlanetProperties } from './TarsBot/Tools/GetAllPlanetProperties';
 import { GetPlanetProperties } from './TarsBot/Tools/GetPlanetProperties';
+import { TravelTimeCalculator } from './TarsBot/Tools/TravelTimeCalculation';
 import { Callbacks } from './WhatsApp';
 
 export type params = {
@@ -36,7 +37,17 @@ const generateResponse: (
                     toolCallback(feedBack) {
                         sendMessage(feedBack)
                     },
-                }).getDynamicTool()
+                }).getDynamicTool(),
+                await new GetAbleRockets({
+                    toolCallback(feedBack) {
+                        sendMessage(feedBack)
+                    },
+                }).getDynamicTool(),
+                await new TravelTimeCalculator({
+                    toolCallback(feedBack) {
+                        sendMessage(feedBack)
+                    },
+                }).getDynamicTool(),
             ],
             modelType: params.modelType,
             name: params.name,

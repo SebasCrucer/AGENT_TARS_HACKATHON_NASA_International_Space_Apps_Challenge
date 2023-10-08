@@ -35,7 +35,7 @@ export class TarsTool<T = object> {
             description: this.description,
             callbacks: [{
                 handleToolStart(_, input) {
-                    console.log(yellow('Buscando en ' + name + ': ') + italic(input));
+                    console.log(yellow('Ejecutando ' + name + ': ') + italic(input));
                     callBackFeedBack && toolCallback && toolCallback(callBackFeedBack(input));
                 }
             }],

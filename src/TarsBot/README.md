@@ -1,0 +1,59 @@
+## Tars
+- **Descripción**: Clase principal que representa el agente Tars.
+- **Importaciones**:
+  - Varios módulos de `langchain`.
+  - `DBMemory`: Clase para gestionar la memoria.
+  - `Decimal`: Biblioteca para operaciones aritméticas precisas.
+- **Propiedades**:
+  - `models`: Modelos de chat disponibles.
+  - `modelName`: Nombre del modelo actual.
+  - `agent`: Instancia del ejecutor del agente.
+  - `messageCost`: Costo asociado a un mensaje.
+  - `priceSupervisor`: Función para supervisar el precio.
+  - `model`: Modelo de chat.
+  - `memory`: Instancia de memoria.
+  - `modelPricing1k`: Precios por mil tokens para diferentes modelos.
+  - `toolkit`: Herramientas disponibles.
+  - `role`: Rol del agente.
+  - `name`: Nombre del agente.
+- **Constructor**:
+  - Inicializa propiedades basadas en los campos proporcionados.
+- **Métodos**:
+  - `tools`: Devuelve las herramientas disponibles.
+  - `init`: Inicializa el agente.
+  - `call`: Llama al agente con valores y callbacks específicos.
+
+## ChatMessageHistory
+- **Descripción**: Clase para gestionar el historial de mensajes de chat.
+- **Importaciones**:
+  - Varios módulos de `langchain` y `typeorm`.
+  - `DB`: Clase para gestionar la base de datos.
+  - `Message` y `Chat`: Entidades de la base de datos.
+- **Propiedades**:
+  - `lc_namespace`: Espacio de nombres para la clase.
+  - `db`: Fuente de datos para la base de datos.
+- **Métodos**:
+  - `getDB`: Obtiene o inicializa la base de datos.
+  - `getMessages`: Obtiene los mensajes para un chat específico.
+  - `addMessage`: Añade un mensaje al historial.
+  - `clear`: Limpia el historial de mensajes.
+
+## DBMemory
+- **Descripción**: Clase para gestionar la memoria de la base de datos.
+- **Importaciones**:
+  - `ChatMessageHistory`: Clase para gestionar el historial de mensajes.
+- **Propiedades**:
+  - `chatHistory`: Historial de mensajes.
+  - `chat_id`: ID del chat.
+  - `messageCost`: Costo asociado a un mensaje.
+  - `returnMessages`: Si se deben devolver los mensajes.
+  - `inputKey` y `outputKey`: Claves para la entrada y salida.
+  - `humanPrefix` y `aiPrefix`: Prefijos para los mensajes humanos y de IA.
+  - `memoryKey`: Clave para la memoria.
+- **Constructor**:
+  - Inicializa propiedades basadas en los campos proporcionados.
+- **Métodos**:
+  - `saveContext`: Guarda el contexto actual.
+  - `clear`: Limpia la memoria.
+  - `memoryKeys`: Devuelve las claves de memoria.
+  - `loadMemoryVariables`: Carga las variables de memoria.
