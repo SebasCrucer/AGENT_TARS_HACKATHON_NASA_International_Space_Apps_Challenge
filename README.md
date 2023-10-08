@@ -28,3 +28,12 @@ TARS proporciona datos detallados sobre diferentes planetas, incluyendo:
 - Características superficiales y puntos de interés.
 
 🌌 **TARS** es la solución definitiva para aquellos interesados en explorar el espacio. Ya sea que estés planeando un viaje a Marte o simplemente quieras aprender más sobre el sistema solar, TARS tiene la respuesta. Con su combinación de tecnología avanzada, datos precisos y facilidad de uso, TARS está listo para llevarte a las estrellas ✨.
+
+## 🛠🐍 Herramientas Python Utilizadas
+
+**TARS** implementa herramientas desarrolladas por nuestros integrantes expertos en python, así como los módulos integrados antes mencionados.
+Las herramientas incorporadas son:
+- **AstroCalc**
+- **Consultor**
+
+### 
