@@ -72,10 +72,30 @@ def calc_min_dist(planet1 : str, planet2 : str, date = None, offset = 3,div = 3)
 
     return (planet_list[index],dist_list[index],date_lst[index].strftime('%Y-%m-%d'))
 
+def gen():
+
+    lst1: list = [key.lower() for key in planet_mapping.keys()]
+    lst2: list = lst1.copy()
+
+    print(lst1)
+
+    lst2 = lst2[1:]
+
+    rtn = list()
+
+    for p1 in lst1:
+
+        for p2 in lst2:
+
+            rtn.append(calc_min_dist(p1,p2))
+
+        lst1 = lst1[1:]
+        lst2 = lst2[1:]
+
+    return rtn
 
 if __name__ == "__main__":
 
-
-    a = calc_min_dist("earth","mercury")
-    print(a)
+    print(gen())
+    
     pass
