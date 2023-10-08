@@ -34,7 +34,7 @@ class Consultor:
         t_dict["Values"] = val_dict
         
 
-        return dumps(t_dict)
+        return str(t_dict)
 
     def __get_row_df(self, header_val: str):
         df = read_csv(self.__path)
@@ -75,7 +75,7 @@ class Consultor:
             # add values dict to list
             rtn_lst.append(t_dict)
             
-        return dumps(rtn_lst)
+        return str(rtn_lst)
 
     def __get_keys_df(self,*args):
 
