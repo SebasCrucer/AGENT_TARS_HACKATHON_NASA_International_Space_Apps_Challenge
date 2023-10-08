@@ -12,7 +12,9 @@ export class GetPlanetProperties extends TarsTool<{}> {
             callBackFeedBack: () => 'Buscando planetas 🔎🪐',
             toolFunctionData: {},
             name: ('get_planet_properties'),
-            description: "Use this function to fetch planet properties from a list. Possible properties: planet, color, mass, diameter, density, gravity, escape_velocity, rotation_period, length_of_day, distance_from_sun, perihelion, aphelion, orbital_period, orbital_velocity, orbital_inclination, orbital_eccentricity, obliquity_to_orbit, mean_temperature, number_of_moons, ring_system, global_magnetic_field, temperature, atmospheric_composition, atmospheric_pressure, surface_features, composition. Request 1 to 4 properties separated by commas without spaces. Example: rotation_period,length_of_day,distance_from_sun."
+            description:
+                "Use this function to fetch planet properties from a list. Possible properties: planet, color, mass, diameter, density, gravity, escape_velocity, rotation_period, length_of_day, distance_from_sun, perihelion, aphelion, orbital_period, orbital_velocity, orbital_inclination, orbital_eccentricity, obliquity_to_orbit, mean_temperature, number_of_moons, ring_system, global_magnetic_field, temperature, atmospheric_composition, atmospheric_pressure, surface_features, composition. Request 1 to 4 properties separated by commas without spaces. Example: rotation_period,length_of_day,distance_from_sun."
+
         });
     }
 
