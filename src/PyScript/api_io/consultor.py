@@ -68,7 +68,7 @@ class Consultor:
                 val_dict[args[index-1]] = row[index]
 
             # add header twice
-            t_dict["Planet"] = row[0]
+            t_dict[df.columns[0]] = row[0]
             # add values dict
             t_dict["Values"] = val_dict
 
@@ -79,15 +79,21 @@ class Consultor:
 
     def __get_keys_df(self,*args):
 
+        df : DataFrame = read_csv(self.__path)
         #add Planet header to filter
-        t_args = ["Planet"]
+        t_args = [df.columns[0]]
+
+        
         #add key words
-        t_args.extend(list(args))
+        t_args.extend(args)
         
         #return filter data frame
-        return read_csv(self.__path)[t_args]
+        df = read_csv(self.__path)[t_args]
+        return df
     
+   
     
+        
 
 
 if __name__ == "__main__":
