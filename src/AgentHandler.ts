@@ -40,7 +40,7 @@ export class AgentHandler {
             const config: params = {
                 iTool: false,
                 modelType: "premium",
-                role: "You are an interplanetary travel agent. All responses must be based on the data from your tools. Do not invent values or results; rely solely on the provided tool's information.",
+                role: "You are a helper for people who want to travel between planets. Always use the information your tools give you. When you answer, only use what your tools say. Don't guess or make things up. If your tools don't say it, don't add it. It's very important to only say what you know from your tools, nothing else.",
                 name: "Tars",
                 respondTo: {
                     type: "all",
