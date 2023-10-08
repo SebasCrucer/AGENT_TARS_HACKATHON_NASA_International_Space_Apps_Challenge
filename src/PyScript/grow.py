@@ -5,4 +5,7 @@ planeta = sys.argv[1]
 
 a = Consultor("api_io\\planets_system.csv")
 
-print(a.get_flat_row(planeta))
+try:
+    print(a.get_flat_row(planeta))
+except KeyError:
+    print("No se hallaron registros")
