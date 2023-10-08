@@ -61,7 +61,6 @@ class Consultor:
 
         # for each row in data frame
         for row in df.values:
-            
             # add key - value twice
             for index in range(1,len(row)):
 
@@ -74,6 +73,9 @@ class Consultor:
 
             # add values dict to list
             rtn_lst.append(t_dict)
+
+            t_dict = dict()
+            val_dict = dict()
             
         return str(rtn_lst)
 
