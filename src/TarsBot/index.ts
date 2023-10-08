@@ -24,7 +24,7 @@ export class Tars {
         chat_id: string,
         toolkit: Tool[]
         modelType?: 'basic' | 'premium' | undefined,
-        role: string
+        role: string,
         name: string,
         // toolsCallback: (toolInfo: { tool: Tool; input: string }) => void,
     }
@@ -90,14 +90,8 @@ export class Tars {
 
         const toolKit = this.toolkit
 
-        const toolDesc = toolKit
-            .filter(tool => !tool.name.includes('systemtool'))
-            .map((tool, i) => `Tool ${i + 1}: ${tool.description}`)
-            .join("\n")
-
         return {
-            toolKit,
-            toolDesc
+            toolKit
         }
     }
 
@@ -113,7 +107,6 @@ export class Tars {
                     + ', assistant role is: '
                     + this.role
                     + '. Assistant is equipped with only the following abilities and tools to carry out various tasks: '
-                    + tools.toolDesc
                     + ' You cannot mention the name or existence of those tools; simply state that you have the abilities they provide. If assistant is asked to do something that is beyond the scope of this tools, you should indicate that you can not do it. Assistant is only capable of executing tasks that are within the capabilities this tools. You should NEVER offer to do something out of the scope of your tools. Do not refer to the functions provided to you under any circumstances. Only reference the tools I specifically mentioned. Respond in the same language as the question. Never generate an answer using backtick or grave accent (```).',
             },
             memory: this.memory,

@@ -1,12 +1,9 @@
 import { Tars } from './TarsBot';
 import { EjemploPlugin } from './TarsBot/Tools/EjemploPlugin';
+import { GetPlanetProperties } from './TarsBot/Tools/GetPlanetProperties';
 import { Callbacks } from './WhatsApp';
 
 export type params = {
-    EjemploPlugin: {
-        nombre: string;
-        id: string;
-    }[]
     iTool?: boolean;
     modelType?: "basic" | "premium",
     role: string,
@@ -26,20 +23,14 @@ const generateResponse: (
     sendMessage: (message: string) => void
 ) => Promise<string> = async (jid, input, agent_id, params, sendMessage) => {
     try {
-        const EjemploPlugins = await Promise.all(
-            params.EjemploPlugin.map(async infoEjemploPlugin =>
-                await new EjemploPlugin({
-                    toolCallback(feedBack) {
-                        sendMessage(feedBack)
-                    },
-                    ...infoEjemploPlugin
-                }).getDynamicTool()
-            )
-        )
         const agent = new Tars({
             chat_id: jid,
             toolkit: [
-                ...EjemploPlugins,
+                await new GetPlanetProperties({
+                    toolCallback(feedBack) {
+                        sendMessage(feedBack)
+                    },
+                }).getDynamicTool()
             ],
             modelType: params.modelType,
             name: params.name,
@@ -69,7 +60,10 @@ export const events: (params: params) => Callbacks = (params) => ({
             message?.conversation :
             messageType === "extendedTextMessage" ?
                 message?.extendedTextMessage?.text :
-                undefined
+                undefined;
+
+        console.log('mensajwe');
+
         if (remoteJid && messageText && !fromMe && remoteJid !== 'status@broadcast') {
             if (
                 params.respondTo.type === 'specific' ?

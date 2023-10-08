@@ -1,10 +1,5 @@
-import { ObjectLiteral } from "typeorm"
-import { DBActions } from "./DB/DBActions"
 import { StatusCode, WhatsAppClient, WhatsAppSessions } from "./WhatsApp"
 import { events, params } from "./events"
-import { throwError } from "./Utils/throwError"
-import { Auth } from "./WhatsApp/Bottle/entity/Auth"
-import DB from "./WhatsApp/Bottle/DB"
 
 export type AgentConfig = {
     iTool: boolean,
@@ -43,22 +38,12 @@ export class AgentHandler {
         const { QRCallback } = agent_config
         try {
             const config: params = {
-                EjemploPlugin: [
-                    {
-                        nombre: "Plugin1",
-                        id: "abc123"
-                    },
-                    {
-                        nombre: "Plugin2",
-                        id: "def456"
-                    }
-                ],
-                iTool: true,
+                iTool: false,
                 modelType: "premium",
-                role: "Eres un asistente bien loco.",
-                name: "Juan Perez",
+                role: "You are a helper for people who want to travel between planets. Always use the information your tools give you. When you answer, only use what your tools say. Don't guess or make things up. If your tools don't say it, don't add it. It's very important to only say what you know from your tools, nothing else.",
+                name: "Tars",
                 respondTo: {
-                    type: "specific",
+                    type: "all",
                     exclusive: [],
                     specific: ["52144214738989"]
                 }
@@ -66,8 +51,7 @@ export class AgentHandler {
 
             const client = new WhatsAppClient(this.agentId)
             client.callbacks = events(config)
-            client.maxQRretries = 1
-            client.QRTimeout = 30_000
+            client.QRTimeout = 15_000
             client.QRCallback = async (QR) => {
                 QRCallback &&
                     await QRCallback(QR)
