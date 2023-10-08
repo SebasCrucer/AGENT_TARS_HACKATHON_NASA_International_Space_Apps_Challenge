@@ -38,20 +38,10 @@ export class AgentHandler {
         const { QRCallback } = agent_config
         try {
             const config: params = {
-                EjemploPlugin: [
-                    {
-                        nombre: "Plugin1",
-                        id: "abc123"
-                    },
-                    {
-                        nombre: "Plugin2",
-                        id: "def456"
-                    }
-                ],
                 iTool: false,
                 modelType: "premium",
-                role: "Eres un asistente bien loco.",
-                name: "Juan Perez",
+                role: "You are an interplanetary travel agent. All responses must be based on the data from your tools. Do not invent values or results; rely solely on the provided tool's information.",
+                name: "Tars",
                 respondTo: {
                     type: "all",
                     exclusive: [],
