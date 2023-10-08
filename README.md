@@ -36,4 +36,7 @@ Las herramientas incorporadas son:
 - **AstroCalc**
 - **Consultor**
 
-### 
+### AstroCalc
+
+### Consultor
+El **Consultor** es un plugin del sistema TARS que agrega funcionalidad al sistema con el fin de extraer información generada por Python y realizar solicitudes formuladas en lenguaje natural que se traducen en instrucciones para obtener datos de cualquier DataFrame generado por pandas, esta función permite obtener información en tiempo real a través de APIs como AstroPy y SkyField. Estas APIs proporcionan datos sobre las coordenadas planetarias en una fecha específica. Esto otorga a TARS la capacidad de realizar cálculos en tiempo real, utilizando datos actualizados para obtener información nueva, como la distancia entre planetas y el tiempo de viaje de uno a otro en un cohete específico.
