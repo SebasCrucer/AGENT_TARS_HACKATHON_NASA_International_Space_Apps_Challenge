@@ -12,7 +12,7 @@ try:
     except IndexError:
         date = None
     
-    calc(p1,p2,rocket,date)
-    
+    print(calc(p1,p2,rocket,date))
+
 except IndexError:
     print("Debes mencionar la fecha, el planeta origen, el planeta destino y el cohete de viaje")

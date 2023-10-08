@@ -111,4 +111,4 @@ def calc(p1,p2,rocket,date = None):
         minutes = (time_seconds % 3600) // 60
         seconds = time_seconds % 60
 
-        print(f"El tiempo de viaje entre {planet1} y {planet2} usando el {selected_rocket} es aproximadamente {int(hours)} horas, {int(minutes)} minutos y {seconds:.2f} segundos.")
+        return f"El tiempo de viaje entre {planet1} y {planet2} usando el {selected_rocket} es aproximadamente {int(hours)} horas, {int(minutes)} minutos y {seconds:.2f} segundos."
