@@ -112,13 +112,5 @@ class Consultor:
     
    
     
-        
 
-
-if __name__ == "__main__":
-
-    a = Consultor("df_dist_min.csv")
-
-    
-    a.get_flat_row_group_by("mercury","venus")
 
